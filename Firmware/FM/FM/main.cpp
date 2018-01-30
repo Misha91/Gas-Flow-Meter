@@ -2,7 +2,7 @@
  * FM.cpp
  *
  * Created: 04.09.2017 10:52:23
- * Author : A5TL9ZZ
+ * Author : Mikhail Ivanov
  */ 
 #define F_CPU 16000000
 #include <avr/io.h>
