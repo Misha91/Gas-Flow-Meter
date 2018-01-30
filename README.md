@@ -17,10 +17,15 @@ PCB
 BoM for 1.3v:
 
 uC	Attiny44A
+
 U1, U4	AO3400
+
 U2	HT7130-3
+
 1400	NCP1400asn50t1g
+
 OA	AD8628
+
 L1	18uH, CR32
 D1	M3
 C1, C6, C8	-
