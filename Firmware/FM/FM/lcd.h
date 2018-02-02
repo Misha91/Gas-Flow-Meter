@@ -1,3 +1,6 @@
+#define LCD_CE_set  PORTA |=  (1<<1)    // CE
+#define LCD_CE_clr  PORTA &=~ (1<<1)
+
 #define LCD_RST_set  PORTA |=  (1<<3)    //external reset input
 #define LCD_RST_clr  PORTA &=~ (1<<3)
  
@@ -18,6 +21,7 @@ void LCD_clear(void);
 void LCD_set_XY(unsigned char X, unsigned char Y);
 void LCD_write_char(unsigned char c);
 void LCD_write_english_string(unsigned char X,unsigned char Y,char *s);
+void drawBitmap(int x, int y, uint8_t* bitmap, int sx, int sy, bool flash);
  
  
 void LCD_write_byte(unsigned char dat, unsigned char command)
@@ -43,7 +47,8 @@ void LCD_write_byte(unsigned char dat, unsigned char command)
  
 void LCD_init() 
 {
- DDRA |= (1<<PIN3) | (1<<PIN4) | (1<<PIN5) | (1<<PIN6);
+ DDRA |= (1<<PIN1) | (1<<PIN3) | (1<<PIN4) | (1<<PIN5) | (1<<PIN6);
+ LCD_CE_clr;
  LCD_RST_clr;
  _delay_us(1);
  LCD_RST_set;
@@ -101,4 +106,3 @@ void LCD_write_english_string(unsigned char X,unsigned char Y,char *s)
   s++;
  }
 }
-
